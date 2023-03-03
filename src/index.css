@@ -1,13 +1,439 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.15;
+  background-color: white;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+
 }
+
+:root {
+  /* colors */
+  --primary-50: #e0fcff;
+  --primary-100: #bef8fd;
+  --primary-200: #87eaf2;
+  --primary-300: #54d1db;
+  --primary-400: #38bec9;
+  --primary-500: #2cb1bc;
+  --primary-600: #14919b;
+  --primary-700: #0e7c86;
+  --primary-800: #0a6c74;
+  --primary-900: #044e54;
+
+  /* grey */
+  --grey-50: #f0f4f8;
+  --grey-100: #d9e2ec;
+  --grey-200: #bcccdc;
+  --grey-300: #9fb3c8;
+  --grey-400: #829ab1;
+  --grey-500: #627d98;
+  --grey-600: #486581;
+  --grey-700: #334e68;
+  --grey-800: #243b53;
+  --grey-900: #102a43;
+  /* rest of the colors */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+
+  /* fonts  */
+  --headingFont: 'Roboto Condensed', Sans-Serif;
+  --bodyFont: 'Cabin', Sans-Serif;
+  --small-text: 0.875rem;
+  --extra-small-text: 0.7em;
+  /* rest of the vars */
+  --backgroundColor: var(--grey-50);
+  --textColor: var(--grey-900);
+  --borderRadius: 0.25rem;
+  --letterSpacing: 1px;
+  --transition: 0.3s ease-in-out all;
+  --max-width: 1120px;
+  --fixed-width: 500px;
+  --fluid-width: 90vw;
+  --breakpoint-lg: 992px;
+  --nav-height: 6rem;
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  --v-anchor-base: #372aa4;
+  --v-primary-base: #372aa4;
+  --v-primary-lighten5: #cca7ff;
+  --v-primary-lighten4: #ae8dff;
+  --v-primary-lighten3: #9173f9;
+  --v-primary-lighten2: #745adc;
+  --v-primary-lighten1: #5741c0;
+  --v-primary-darken1: #091389;
+  --v-primary-darken2: #00006f;
+  --v-primary-darken3: #000056;
+  --v-primary-darken4: #00003f;
+  --v-secondary-base: #424242;
+  --v-secondary-lighten5: #c1c1c1;
+  --v-secondary-lighten4: #a6a6a6;
+  --v-secondary-lighten3: #8b8b8b;
+  --v-secondary-lighten2: #727272;
+  --v-secondary-lighten1: #595959;
+  --v-secondary-darken1: #2c2c2c;
+  --v-secondary-darken2: #171717;
+  --v-secondary-darken3: #000000;
+  --v-secondary-darken4: #000000;
+  --v-accent-base: #82b1ff;
+  --v-accent-lighten5: #ffffff;
+  --v-accent-lighten4: #f8ffff;
+  --v-accent-lighten3: #daffff;
+  --v-accent-lighten2: #bce8ff;
+  --v-accent-lighten1: #9fccff;
+  --v-accent-darken1: #6596e2;
+  --v-accent-darken2: #467dc6;
+  --v-accent-darken3: #2364aa;
+  --v-accent-darken4: #004c90;
+  --v-error-base: #ef233c;
+  --v-error-lighten5: #ffc2ba;
+  --v-error-lighten4: #ffa59f;
+  --v-error-lighten3: #ff8785;
+  --v-error-lighten2: #ff696c;
+  --v-error-lighten1: #ff4953;
+  --v-error-darken1: #ce0026;
+  --v-error-darken2: #ae0012;
+  --v-error-darken3: #8e0000;
+  --v-error-darken4: #700000;
+  --v-info-base: #2196f3;
+  --v-info-lighten5: #d4ffff;
+  --v-info-lighten4: #b5ffff;
+  --v-info-lighten3: #95e8ff;
+  --v-info-lighten2: #75ccff;
+  --v-info-lighten1: #51b0ff;
+  --v-info-darken1: #007cd6;
+  --v-info-darken2: #0064ba;
+  --v-info-darken3: #004d9f;
+  --v-info-darken4: #003784;
+  --v-success-base: #06ac62;
+  --v-success-lighten5: #b8ffe8;
+  --v-success-lighten4: #9affcc;
+  --v-success-lighten3: #7cffb0;
+  --v-success-lighten2: #5de596;
+  --v-success-lighten1: #3cc87b;
+  --v-success-darken1: #00914a;
+  --v-success-darken2: #007632;
+  --v-success-darken3: #005c1b;
+  --v-success-darken4: #004303;
+  --v-warning-base: #ffb61b;
+  --v-warning-lighten5: #ffffb2;
+  --v-warning-lighten4: #ffff95;
+  --v-warning-lighten3: #ffff79;
+  --v-warning-lighten2: #ffee5c;
+  --v-warning-lighten1: #ffd13f;
+  --v-warning-darken1: #e09b00;
+  --v-warning-darken2: #c18100;
+  --v-warning-darken3: #a26800;
+  --v-warning-darken4: #855000;
+  --v-white-base: #ffffff;
+  --v-white-lighten5: #ffffff;
+  --v-white-lighten4: #ffffff;
+  --v-white-lighten3: #ffffff;
+  --v-white-lighten2: #ffffff;
+  --v-white-lighten1: #ffffff;
+  --v-white-darken1: #e2e2e2;
+  --v-white-darken2: #c6c6c6;
+  --v-white-darken3: #ababab;
+  --v-white-darken4: #919191;
+  --v-declined-base: #ef233c;
+  --v-declined-lighten5: #ffc2ba;
+  --v-declined-lighten4: #ffa59f;
+  --v-declined-lighten3: #ff8785;
+  --v-declined-lighten2: #ff696c;
+  --v-declined-lighten1: #ff4953;
+  --v-declined-darken1: #ce0026;
+  --v-declined-darken2: #ae0012;
+  --v-declined-darken3: #8e0000;
+  --v-declined-darken4: #700000;
+  --v-pending-base: #ffb61b;
+  --v-pending-lighten5: #ffffb2;
+  --v-pending-lighten4: #ffff95;
+  --v-pending-lighten3: #ffff79;
+  --v-pending-lighten2: #ffee5c;
+  --v-pending-lighten1: #ffd13f;
+  --v-pending-darken1: #e09b00;
+  --v-pending-darken2: #c18100;
+  --v-pending-darken3: #a26800;
+  --v-pending-darken4: #855000;
+  --v-pending-lighten1-base: #ffe6a0;
+  --v-pending-lighten1-lighten5: #ffffff;
+  --v-pending-lighten1-lighten4: #ffffff;
+  --v-pending-lighten1-lighten3: #fffff4;
+  --v-pending-lighten1-lighten2: #ffffd7;
+  --v-pending-lighten1-lighten1: #ffffbb;
+  --v-pending-lighten1-darken1: #e2ca85;
+  --v-pending-lighten1-darken2: #c5af6c;
+  --v-pending-lighten1-darken3: #a99453;
+  --v-pending-lighten1-darken4: #8d7a3a;
+  --v-processing-base: #ff6a2c;
+  --v-processing-lighten5: #fff8b0;
+  --v-processing-lighten4: #ffda94;
+  --v-processing-lighten3: #ffbe7a;
+  --v-processing-lighten2: #ffa15f;
+  --v-processing-lighten1: #ff8546;
+  --v-processing-darken1: #de4f0f;
+  --v-processing-darken2: #be3200;
+  --v-processing-darken3: #9f0e00;
+  --v-processing-darken4: #810000;
+  --v-success-light-base: #08c632;
+  --v-success-light-lighten5: #c6ffbd;
+  --v-success-light-lighten4: #a7ffa1;
+  --v-success-light-lighten3: #88ff85;
+  --v-success-light-lighten2: #68ff6a;
+  --v-success-light-lighten1: #44e34e;
+  --v-success-light-darken1: #00aa0e;
+  --v-success-light-darken2: #008e00;
+  --v-success-light-darken3: #007300;
+  --v-success-light-darken4: #005900;
+  --v-neutral-base: #172b4d;
+  --v-neutral-lighten5: #96a4cf;
+  --v-neutral-lighten4: #7b8ab3;
+  --v-neutral-lighten3: #627098;
+  --v-neutral-lighten2: #49587e;
+  --v-neutral-lighten1: #304165;
+  --v-neutral-darken1: #001736;
+  --v-neutral-darken2: #000021;
+  --v-neutral-darken3: #00000c;
+  --v-neutral-darken4: #000000;
+  --v-auth-bg-base: #f7f7fc;
+  --v-auth-bg-lighten5: #ffffff;
+  --v-auth-bg-lighten4: #ffffff;
+  --v-auth-bg-lighten3: #ffffff;
+  --v-auth-bg-lighten2: #ffffff;
+  --v-auth-bg-lighten1: #ffffff;
+  --v-auth-bg-darken1: #dbdbdf;
+  --v-auth-bg-darken2: #bfbfc3;
+  --v-auth-bg-darken3: #a4a4a8;
+  --v-auth-bg-darken4: #89898e;
+  --v-label-base: #989898;
+  --v-label-lighten5: #ffffff;
+  --v-label-lighten4: #ffffff;
+  --v-label-lighten3: #eaeaea;
+  --v-label-lighten2: #cecece;
+  --v-label-lighten1: #b3b3b3;
+  --v-label-darken1: #7e7e7e;
+  --v-label-darken2: #656565;
+  --v-label-darken3: #4d4d4d;
+  --v-label-darken4: #373737;
+  --v-blue-base: #244fbe;
+  --v-blue-lighten1: #3d6be1;
+  --v-blue-lighten2: #5282ff;
+  --v-blue-lighten3: #72a2ff;
+  --v-blue-lighten4: #bfd5ff;
+  --v-peach-base: #ef7970;
+  --v-peach-lighten1: #ff948c;
+  --v-peach-lighten2: #ffb4ae;
+  --v-peach-lighten3: #ffc8c4;
+  --v-peach-lighten4: #ffe1df;
+  --v-turquoise-base: #92d7fb;
+  --v-turquoise-lighten1: #a7e1ff;
+  --v-turquoise-lighten2: #bee9ff;
+  --v-turquoise-lighten3: #d6f1ff;
+  --v-turquoise-lighten4: #eef9ff;
+  --v-yellow-base: #f9d576;
+  --v-yellow-lighten1: #ffe399;
+  --v-yellow-lighten2: #ffefc4;
+  --v-yellow-lighten3: #ffedbc;
+  --v-yellow-lighten4: #fff5dc;
+  --v-red-base: #ef233c;
+  --v-red-lighten1: #f0475c;
+  --v-red-lighten2: #ff7485;
+  --v-red-lighten3: #fd93a0;
+  --v-red-lighten4: #ffc0c8;
+  --v-seagreen-base: #28afb0;
+  --v-seagreen-lighten1: #49dadb;
+  --v-seagreen-lighten2: #71eff0;
+  --v-seagreen-lighten3: #bcf8f9;
+  --v-seagreen-lighten4: #e0ffff;
+  --v-purple-base: #372aa4;
+  --v-purple-lighten1: #6558d7;
+  --v-purple-lighten2: #8e83f1;
+  --v-purple-lighten3: #b0a7ff;
+  --v-purple-lighten4: #d9d5fb;
+  --v-grey-base: #2f2f2f;
+  --v-grey-lighten1: #6c757d;
+  --v-grey-lighten2: #adb5bd;
+  --v-grey-lighten3: #ced4da;
+  --v-grey-lighten4: #dee2e6;
+  --v-grey-lighten5: #828282;
+  --v-grey-lighten6: #f2f2f2;
+  --v-pink-base: #ee7a9c;
+  --v-pink-lighten1: #f881a4;
+  --v-pink-lighten2: #ff9cb9;
+  --v-pink-lighten3: #feb0c7;
+  --v-pink-lighten4: #ffc8d8;
+  --v-blush-base: #dca4b8;
+  --v-blush-lighten1: #ebaec4;
+  --v-blush-lighten2: #fabed4;
+  --v-blush-lighten3: #fcd6e4;
+  --v-blush-lighten4: #fee9f1;
+  --v-teal-base: #64bec8;
+  --v-teal-lighten1: #74ccd6;
+  --v-teal-lighten2: #88e0ea;
+  --v-teal-lighten3: #a8f3fc;
+  --v-teal-lighten4: #c0f9ff;
+  --v-nude-base: #eab8a9;
+  --v-nude-lighten1: #fac7b8;
+  --v-nude-lighten2: #ffdbd0;
+  --v-nude-lighten3: #ffebe5;
+  --v-nude-lighten4: #fff7f7;
+}
+
+.theme--light.v-btn.v-btn--has-bg {
+  background-color: '#f5f5f5';
+}
+
+.v-application .primary {
+    background-color: var(--v-primary-base) !important;
+    border-color: var(--v-primary-base) !important;
+}
+
+.v-btn--fab.v-size--default {
+    height: 56px;
+    width: 56px;
+}
+
+.v-btn.v-size--default, .v-btn.v-size--large {
+    font-size: .875rem;
+}
+
+.theme--light.v-btn {
+    color: rgba(0,0,0,.87);
+}
+
+.v-application .ml-3 {
+    margin-left: 12px!important;
+}
+
+
+
+.v-btn--round {
+    border-radius: 50%;
+}
+
+.v-btn--fab, .v-btn--icon {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.v-btn {
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 500;
+  letter-spacing: .0892857143em;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  text-indent: .0892857143em;
+  text-transform: uppercase;
+  transition-duration: .28s;
+  transition-property: box-shadow,transform,opacity;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.animated { 
+  padding-top:95px;
+  margin-bottom:60px;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s; 
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both; 
+  /* background-color:red; */
+
+  /* animation: bounce 2s; */
+  /* animation-direction: alternate; */
+  animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+  animation-iteration-count: infinite;
+
+  /* align-self: flex-end; */
+  animation-duration: 2s;
+  /* animation-iteration-count: infinite; */
+  /* background-color: #F44336;
+  height: 200px;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+  width: 200px; */
+}
+
+@-webkit-keyframes bounceInDown {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+
+@-webkit-keyframes bounceInDown {
+  0%   { transform: translateY(50px); }
+  50%  { transform: translateY(0px); }
+  100% { transform: translateY(50px); }
+}
+
+@keyframes bounceInDown {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-130px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes bounceInUp {
+  0%   { transform: translateY(40px); }
+  50%  { transform: translateY(100px); }
+  100% { transform: translateY(40px); }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  animation-timing-function: ease;
+}
+
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+  animation-timing-function: ease;
+}
+
+/* .bounce-2 {
+  animation-name: bounce-2;
+}
+@keyframes bounce-2 {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+} */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
