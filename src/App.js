@@ -28,6 +28,7 @@ function App() {
         }>
 
         </Route> */}
+        <Route path="/" element={<Layout />} />
         <Route path="/landing" element={<Layout />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/error" element={<Error500 />} />
