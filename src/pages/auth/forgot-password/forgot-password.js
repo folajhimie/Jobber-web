@@ -96,7 +96,7 @@ const ForgotPassword = () => {
             <ToastContainer />
             
 
-            <div className="flex md:h-screen bg-white relative  flex-col justify-center items-center dark:bg-gray-900 d-flex min-h-full px-4 sm:px-6 lg:px-8 py-10">
+            <div className="flex md:h-screen bg-white relative  flex-col justify-center items-center  d-flex min-h-full px-4 sm:px-6 lg:px-8 py-10">
                 <div className="border border-gray-300 bg-white flex flex-col justify-center items-center shadow-lg rounded p-10 ">
                     <div className="flex flex-col items-center space-y-3">
                         <div className="flex justify-center w-full mt-3">

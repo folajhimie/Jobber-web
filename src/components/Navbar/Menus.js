@@ -5,7 +5,7 @@ import DropdownMenu from './DropdownMenu';
 export default function Menus() {
   return (
         <div className="">
-          <div className="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-10 md:mt-0 md:text-sm md:font-medium md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <div className="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-10 md:mt-0 md:text-sm md:font-medium md:border-0">
             <div className="w-full">
               <a href='#home' className='hover:text-primary py-2 block font-poppins'>Home</a>
             </div>

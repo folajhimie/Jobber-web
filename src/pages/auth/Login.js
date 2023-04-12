@@ -98,9 +98,9 @@ const Register = () => {
     return (
         <div>
             <ToastContainer />
-            <div className=" dark:bg-gray-900 d-flex min-h-full items-center justify-center  px-4 sm:px-6 lg:px-8">
+            <div className="  d-flex min-h-full items-center justify-center  px-4 sm:px-6 lg:px-8">
                 <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
-                    <div className="border border-gray-200 w-full bg-white rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 shadow-xl hover:shadow-2xl">
+                    <div className="border border-gray-200 w-full bg-white rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0  shadow-xl hover:shadow-2xl">
                         <div className="flex justify-center w-full mt-6">
                             <div
                                 className="m-1"
@@ -126,7 +126,7 @@ const Register = () => {
                             </p>
                             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" method="POST">
                                 <div className="d-flex justify-start">
-                                    <label htmlFor="email" className="flex justify-start justify-items-start items-start mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address:</label>
+                                    <label htmlFor="email" className="flex justify-start justify-items-start items-start mb-2 text-sm font-medium text-gray-900 ">Email Address:</label>
                                     <div className="flex">
                                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <label htmlFor="password" className="flex justify-start justify-items-start items-start mb-2 text-sm font-medium text-gray-900 dark:text-white">Password:</label>
+                                    <label htmlFor="password" className="flex justify-start justify-items-start items-start mb-2 text-sm font-medium text-gray-900 ">Password:</label>
 
                                     <div className="flex">
                                         <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
@@ -161,7 +161,7 @@ const Register = () => {
                                             name="password"
                                             id="password"
                                             placeholder="************"
-                                            className="-ml-10 pl-10 pr-3 py-2  bg-gray-50 border-2 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500 focus:border-teal-700 focus:outline-none focus:ring-teal-700"
+                                            className="-ml-10 pl-10 pr-3 py-2  bg-gray-50 border-2 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600  w-full p-2.5   dark:focus:ring-teal-500 dark:focus:border-teal-500 focus:border-teal-700 focus:outline-none focus:ring-teal-700"
                                             value={password}
                                             onChange={handlePassword}
                                             ref={passwordInput}
